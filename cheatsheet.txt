@@ -33,3 +33,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('todo_app.urls'))
 ]
+
+8. setting up the models
+9. add the model created to the apps>admin.py
+from .models import Task
+
+admin.site.register(Task)

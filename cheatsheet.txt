@@ -1,0 +1,16 @@
+Start a new project
+1. virtualenv env - create a virtual environment
+    -env\Scripts\activate -> activate virtual environment
+    -pip install django
+2. django-admin startproject todo_proj - create a project
+3.python manage.py startapp todo_app - create an app
+
+
+Initialize github
+1. git init
+2. git remote add origin  <REMOTE_URL> 
+3. git config --global user.name "nico"
+4. git config --global user.email "onicsbantu@gmail.com"
+5. git add .
+6. git commit -am "comment"
+7. git push

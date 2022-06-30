@@ -3,14 +3,33 @@ Start a new project
     -env\Scripts\activate -> activate virtual environment
     -pip install django
 2. django-admin startproject todo_proj - create a project
-3.python manage.py startapp todo_app - create an app
+3 .python manage.py startapp todo_app - create an app
+
+4. add the new app to the settings.py installed_apps
+ -ex: INSTALLED_APPS = [    
+    'todo_app.apps.TodoAppConfig',
+]
+5. add a urls.py to the created app
+    from django.urls import path
+    from . import views
+
+    urlpatterns = [
+        path('', views.taskList, name='tasks'),
+    ]
+
+6. add this to views.py.
+    from django.shortcuts import render
+    from django.http import HttpResponse
+
+    def taskList(request):
+        return HttpResponse('To Do list')
+
+7. add this to project's urls.py
+from django.contrib import admin
+from django.urls import path, include
 
 
-Initialize github
-1. git init
-2. git remote add origin  <REMOTE_URL> 
-3. git config --global user.name "nico"
-4. git config --global user.email "onicsbantu@gmail.com"
-5. git add .
-6. git commit -am "comment"
-7. git push
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('todo_app.urls'))
+]

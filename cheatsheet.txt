@@ -1,3 +1,5 @@
+https://www.dennisivy.com/post/django-class-based-views/
+
 Start a new project
 1. virtualenv env - create a virtual environment
     -env\Scripts\activate -> activate virtual environment
@@ -39,3 +41,14 @@ urlpatterns = [
 from .models import Task
 
 admin.site.register(Task)
+
+NOTES:
+
+template_name: By default the ListView Looks for a template with the prefix of the model name (task) and the suffix of _list.html
+ if not otherwise set (task_list.html). This can be overridden by setting the “template_name” attribute.
+
+context_object_name: Override the default queryset name of “object_list” by setting the “context_object_name” attribute.
+ It helps to have a more user friendly name to work with besides just “object_list”.
+
+paginate_by & ordering: The list view also has pagination and ordering already built in. 
+We can set these methods by setting their attributes like I did in the code example above.
